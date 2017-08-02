@@ -1,5 +1,5 @@
 # turbopsapi
-The API supporting the TurboPS app
+The API supporting the [TurboPS app](https://github.com/boundlessgeo/TurboPS).
 
 ## Getting started
 `turbopsapi` is a [Spring Boot](https://projects.spring.io/spring-boot/) application. The contents of this repo is self contained enough to ensure that all necessary dependencies are automatically downloaded. The project is managed by [Gradle](https://gradle.org/) that takes care of the dependency management, building, running and generally keeping it all together.
