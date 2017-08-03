@@ -20,7 +20,7 @@ import lombok.ToString;
  * @author ssengupta
  */
 @Entity
-@ToString(includeFieldNames = true)
+@ToString(includeFieldNames = true, exclude = "projects")
 public class ProjectManager {
 
 	@Id
