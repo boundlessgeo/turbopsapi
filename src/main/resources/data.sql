@@ -1,10 +1,37 @@
+-- A file to build out a test database. The order of entry is important.
+
 -- Project Managers
-insert into project_manager (id, first_name, last_name, email) values (1, 'Jeremy', 'Bixby', 'jbixby@boundlessgeo.com');
-insert into project_manager (id, first_name, last_name, email) values (2, 'Soumya', 'Sengupta', 'ssengupta@boundlessgeo.com');
-insert into project_manager (id, first_name, last_name, email) values (3, 'Bernice', 'Colyandro', 'bcolyandro@boundlessgeo.com');
-insert into project_manager (id, first_name, last_name, email) values (4, 'Kelly', 'Husted', 'khusted@boundlessgeo.com');
+insert into project_manager(id, first_name, last_name, email, created_at) values (1, 'Jeremy', 'Bixby', 'jbixby@boundlessgeo.com', now());
+insert into project_manager(id, first_name, last_name, email, created_at) values (2, 'Soumya', 'Sengupta', 'ssengupta@boundlessgeo.com', now());
+insert into project_manager(id, first_name, last_name, email, created_at) values (3, 'Bernice', 'Colyandro', 'bcolyandro@boundlessgeo.com', now());
+insert into project_manager(id, first_name, last_name, email, created_at) values (4, 'Kelly', 'Husted', 'khusted@boundlessgeo.com', now());
 
 -- Projects
-insert into project (id, name, description, pm_id, maven_link_id) values (1, 'DHH', 'Emergency facilities management', 1, 1);
-insert into project (id, name, description, pm_id, maven_link_id) values (2, 'Monsanto', 'Big agri business', 2, 2);
-insert into project (id, name, description, pm_id, maven_link_id) values (3, 'SOCOM VA', 'SOCOM Va Beach', 3, 3);
+insert into project(id, name, period_of_performance, description, budget, pm_id, program_manager, props, created_at) values (1, 'DHH', 1501459200, 'Emergency facilities management', 200000, 1, 'Elliott Ferguson', '', now());
+insert into project(id, name, period_of_performance, description, budget, pm_id, program_manager, props, created_at) values (2, 'Monsanto', 1504137600, 'Big agri business', 443000, 2, 'Soumya Sengupta', '', now());
+insert into project(id, name, period_of_performance, description, budget, pm_id, program_manager, props, created_at) values (3, 'SOCOM VA', 1501459200, 'SOCOM Va Beach', 500000, 3, 'Elliott Ferguson', '', now());
+
+-- Risks
+insert into risk(id, risk_name, risk_type, risk_status, probability, impact, rating, owner, project_id, created_at) values (1, 'SOCOM-VA-RISK', 'CUSTSAT', 'ONGOING', 0.723, 'Potential for lawsuit', 'Severe', 'Brian Monheiser', 3, now());
+
+-- Contingencies
+insert into contingency(id, trigger, description, risk_id, created_at) values (1, 'Cust Sat Trigger', 'Give money back with apologies', 1, now());
+
+-- Config Docs
+insert into config_doc(id, doc_name, doc_type, version, owner, location, project_id, created_at) values (1, 'Dev config', 'WORD', 7, 'Ami Rahav', '/projects/DHH/config', 1, now());
+insert into config_doc(id, doc_name, doc_type, version, owner, location, project_id, created_at) values (2, 'Test config', 'WORD', 4, 'Ami Rahav', '/projects/DHH/config', 1, now());
+insert into config_doc(id, doc_name, doc_type, version, owner, location, project_id, created_at) values (3, 'Prod config', 'PDF', 3, 'Yancy Matherne', '/projects/DHH/config', 1, now());
+
+-- Project Note
+insert into project_note(id, note, project_id, created_at) values (1, 'Going well', 1, now());
+insert into project_note(id, note, project_id, created_at) values (2, 'Martin is happy (somewhat)', 2, now());
+insert into project_note(id, note, project_id, created_at) values (3, 'Dave is not responding', 3, now());
+
+-- Scorecards
+insert into scorecard(id, for_month_year, scope_status, scope_trend, budget_status, budget_trend, resource_status, resource_trend, project_id, created_at) values(1, now(), 'GREEN', 'NOCHANGE', 'GREEN', 'NOCHANGE', 'GREEN', 'NOCHANGE', 1, now());
+
+-- Change orders
+insert into change_order(id, reason, change_order_type, cost, project_id, created_at) values (1, 'Added scope', 'SCOPE', 120000, 3, now());
+insert into change_order(id, reason, change_order_type, cost, project_id, created_at) values (2, 'Extended PoP', 'POP', 0, 3, now());
+insert into change_order(id, reason, change_order_type, cost, project_id, created_at) values (3, 'Added scope', 'SCOPE', 120000, 3, now());
+insert into change_order(id, reason, change_order_type, cost, project_id, created_at) values (4, 'No cost extension', 'POP', 0, 3, now());

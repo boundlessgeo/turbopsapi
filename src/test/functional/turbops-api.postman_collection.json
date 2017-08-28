@@ -1,0 +1,71 @@
+{
+	"variables": [],
+	"info": {
+		"name": "turbops-api",
+		"_postman_id": "8ec44b68-ea5a-ea2c-6d28-2ca6d003523f",
+		"description": "A collection for testing the TurboPS API.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Project list",
+			"request": {
+				"url": "http://localhost:8080/projects",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Search a project by name",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/projects/search/findByName?name=DHH",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"projects",
+						"search",
+						"findByName"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "DHH",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Project Managers list",
+			"request": {
+				"url": "http://localhost:8080/projectManagers",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

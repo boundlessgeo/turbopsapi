@@ -7,9 +7,6 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import lombok.Getter;
@@ -17,15 +14,16 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
+ * TODO: This class should probably be replaced by an object representing a
+ * "user". If replacement is not an option due to the 1:M mapping, this class
+ * should contain a reference to the "user" object.
+ *
  * @author ssengupta
  */
+@SuppressWarnings("serial")
 @Entity
 @ToString(includeFieldNames = true, exclude = "projects")
-public class ProjectManager {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long id;
+public class ProjectManager extends AuditableObject {
 
 	@Getter
 	@Setter
