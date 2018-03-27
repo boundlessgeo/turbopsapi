@@ -1,6 +1,7 @@
-package com.boundlessgeo.ps.turbopsapi.model;
-
-import java.util.Date;
+/**
+ *
+ */
+package com.boundlessgeo.ps.turbopsapi.model.ProjMgmt;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -9,51 +10,39 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.boundlessgeo.ps.turbopsapi.model.AuditableObject;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+/**
+ * @author ssengupta
+ *
+ */
 @SuppressWarnings("serial")
 @Entity
 @ToString(includeFieldNames = true, exclude = "project")
-public class Scorecard extends AuditableObject {
+public class ChangeOrder extends AuditableObject {
 	@Getter
 	@Setter
-	private Date forMonthYear;
+	private String initiatedBy;
+
+	@Getter
+	@Setter
+	private String reason;
 
 	@Getter
 	@Setter
 	@Enumerated(EnumType.STRING)
-	private Status scopeStatus;
+	private ChangeOrderType changeOrderType;
 
 	@Getter
 	@Setter
-	@Enumerated(EnumType.STRING)
-	private Trend scopeTrend;
+	private long cost;
 
-	@Getter
-	@Setter
-	@Enumerated(EnumType.STRING)
-	private Status budgetStatus;
-
-	@Getter
-	@Setter
-	@Enumerated(EnumType.STRING)
-	private Trend budgetTrend;
-
-	@Getter
-	@Setter
-	@Enumerated(EnumType.STRING)
-	private Status resourceStatus;
-
-	@Getter
-	@Setter
-	@Enumerated(EnumType.STRING)
-	private Trend resourceTrend;
-
-	// TODO: Need to check Risk JSON serialization
+	// TODO: Need to check ChangeOrder JSON serialization
 	// Seems like both the exclude in the @ToString above and the @JsonIgnore
 	// below are needed for correct JSON serialization, otherwise stack
 	// overflow errors will occur.

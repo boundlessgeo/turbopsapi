@@ -1,12 +1,12 @@
 /**
  *
  */
-package com.boundlessgeo.ps.turbopsapi.repositories;
+package com.boundlessgeo.ps.turbopsapi.repositories.ProjMgmt;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
-import com.boundlessgeo.ps.turbopsapi.model.ProjectManager;
+import com.boundlessgeo.ps.turbopsapi.model.ProjMgmt.ProjectManager;
 
 /**
  * @author ssengupta

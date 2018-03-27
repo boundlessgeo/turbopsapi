@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.boundlessgeo.ps.turbopsapi.model;
+package com.boundlessgeo.ps.turbopsapi.model.ProjMgmt;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -16,9 +16,11 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
-public enum ChangeOrderType {
-	SCOPE("Scope"), COST("Cost"), POP("PoP");
+public enum ConfigDocType {
+	WORD("MS Word"),
+	EXCEL("MS Excel"),
+	PDF("PDF");
 
 	@Getter
-	private final String changeOrderType;
+	private final String docType;
 }

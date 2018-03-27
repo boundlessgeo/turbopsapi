@@ -1,64 +1,58 @@
-/**
- *
- */
-package com.boundlessgeo.ps.turbopsapi.model;
+package com.boundlessgeo.ps.turbopsapi.model.ProjMgmt;
 
-import java.util.List;
+import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
+import com.boundlessgeo.ps.turbopsapi.model.AuditableObject;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-/**
- * @author ssengupta
- *
- */
 @SuppressWarnings("serial")
 @Entity
 @ToString(includeFieldNames = true, exclude = "project")
-public class Risk extends AuditableObject {
-
+public class Scorecard extends AuditableObject {
 	@Getter
 	@Setter
-	private String riskName;
-
-	@Getter
-	@Setter
-	@Enumerated(EnumType.STRING)
-	private RiskType riskType;
+	private Date forMonthYear;
 
 	@Getter
 	@Setter
 	@Enumerated(EnumType.STRING)
-	private RiskStatus riskStatus;
+	private Status scopeStatus;
 
 	@Getter
 	@Setter
-	private Double probability;
+	@Enumerated(EnumType.STRING)
+	private Trend scopeTrend;
 
 	@Getter
 	@Setter
-	private String impact;
+	@Enumerated(EnumType.STRING)
+	private Status budgetStatus;
 
 	@Getter
 	@Setter
-	private String rating;
+	@Enumerated(EnumType.STRING)
+	private Trend budgetTrend;
 
-	// TODO: Probably should be replaced by an object representing "user".
 	@Getter
 	@Setter
-	private String owner;
+	@Enumerated(EnumType.STRING)
+	private Status resourceStatus;
+
+	@Getter
+	@Setter
+	@Enumerated(EnumType.STRING)
+	private Trend resourceTrend;
 
 	// TODO: Need to check Risk JSON serialization
 	// Seems like both the exclude in the @ToString above and the @JsonIgnore
@@ -70,9 +64,4 @@ public class Risk extends AuditableObject {
 	@JoinColumn(name = "PROJECT_ID")
 	@JsonIgnore
 	private Project project;
-
-	@Getter
-	@Setter
-	@OneToMany(mappedBy = "risk", cascade = CascadeType.ALL)
-	private List<Contingency> contingencies;
 }

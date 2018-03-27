@@ -2,17 +2,17 @@
 
 -- Project Managers
 insert into project_manager(id, first_name, last_name, email, created_at) values (1, 'Jeremy', 'Bixby', 'jbixby@boundlessgeo.com', now());
-insert into project_manager(id, first_name, last_name, email, created_at) values (2, 'Soumya', 'Sengupta', 'ssengupta@boundlessgeo.com', now());
-insert into project_manager(id, first_name, last_name, email, created_at) values (3, 'Bernice', 'Colyandro', 'bcolyandro@boundlessgeo.com', now());
-insert into project_manager(id, first_name, last_name, email, created_at) values (4, 'Kelly', 'Husted', 'khusted@boundlessgeo.com', now());
+insert into project_manager(id, first_name, last_name, email, created_at) values (2, 'Kevin', 'Copas', 'kcopas@boundlessgeo.com', now());
+insert into project_manager(id, first_name, last_name, email, created_at) values (3, 'Joe', 'Pierson', 'jpierson@boundlessgeo.com', now());
+insert into project_manager(id, first_name, last_name, email, created_at) values (4, 'Elliott', 'Ferguson', 'eferguson@boundlessgeo.com', now());
 
 -- Projects
-insert into project(id, name, period_of_performance, description, budget, pm_id, program_manager, props, created_at) values (1, 'DHH', 1501459200, 'Emergency facilities management', 200000, 1, 'Elliott Ferguson', '', now());
-insert into project(id, name, period_of_performance, description, budget, pm_id, program_manager, props, created_at) values (2, 'Monsanto', 1504137600, 'Big agri business', 443000, 2, 'Soumya Sengupta', '', now());
-insert into project(id, name, period_of_performance, description, budget, pm_id, program_manager, props, created_at) values (3, 'SOCOM VA', 1501459200, 'SOCOM Va Beach', 500000, 3, 'Elliott Ferguson', '', now());
+insert into project(id, name, period_of_performance, description, budget, pm_id, program_manager, props, start_date, projected_end_date, created_at) values (1, 'DHH', 'DEC 31 2018', 'Emergency facilities management', 200000, 1, 'Jeremy Bixby', '', '2018-03-01T00:00:00', '2018-03-01T00:00:00', now());
+insert into project(id, name, period_of_performance, description, budget, pm_id, program_manager, props, start_date, projected_end_date, created_at) values (2, 'Syngenta', 'DEC 31 2018', 'Big agri business', 443000, 2, 'Soumya Sengupta', '', '2018-04-01T00:00:00', '2018-03-01T00:00:00', now());
+insert into project(id, name, period_of_performance, description, budget, pm_id, program_manager, props, start_date, projected_end_date, created_at) values (3, 'SOCOM VA', 'DEC 31 2018', 'SOCOM Va Beach', 500000, 3, 'Elliott Ferguson', '', '2017-01-01T00:00:00', '2018-03-01T00:00:00', now());
 
 -- Risks
-insert into risk(id, risk_name, risk_type, risk_status, probability, impact, rating, owner, project_id, created_at) values (1, 'SOCOM-VA-RISK', 'CUSTSAT', 'ONGOING', 0.723, 'Potential for lawsuit', 'Severe', 'Brian Monheiser', 3, now());
+insert into risk(id, risk_name, risk_type, risk_status, probability, impact, rating, owner, project_id, created_at) values (1, 'SOCOM-VA-RISK', 'CUSTSAT', 'ONGOING', 0.723, 'Requirements are fluid', 'Severe', 'Jeremy Bixby', 3, now());
 
 -- Contingencies
 insert into contingency(id, trigger, description, risk_id, created_at) values (1, 'Cust Sat Trigger', 'Give money back with apologies', 1, now());
@@ -25,7 +25,7 @@ insert into config_doc(id, doc_name, doc_type, version, owner, location, project
 -- Project Note
 insert into project_note(id, note, project_id, created_at) values (1, 'Going well', 1, now());
 insert into project_note(id, note, project_id, created_at) values (2, 'Martin is happy (somewhat)', 2, now());
-insert into project_note(id, note, project_id, created_at) values (3, 'Dave is not responding', 3, now());
+insert into project_note(id, note, project_id, created_at) values (3, 'Account Mgmt is not responding', 3, now());
 
 -- Scorecards
 insert into scorecard(id, for_month_year, scope_status, scope_trend, budget_status, budget_trend, resource_status, resource_trend, project_id, created_at) values(1, now(), 'GREEN', 'NOCHANGE', 'GREEN', 'NOCHANGE', 'GREEN', 'NOCHANGE', 1, now());

@@ -1,16 +1,22 @@
 /**
  *
  */
-package com.boundlessgeo.ps.turbopsapi.model;
+package com.boundlessgeo.ps.turbopsapi.model.ProjMgmt;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.boundlessgeo.ps.turbopsapi.model.AuditableObject;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -30,7 +36,7 @@ public class Project extends AuditableObject {
 
 	@Getter
 	@Setter
-	private long periodOfPerformance;
+	private String periodOfPerformance;
 
 	@Getter
 	@Setter
@@ -49,6 +55,18 @@ public class Project extends AuditableObject {
 	@Getter
 	@Setter
 	private String props;
+	
+	@Getter
+	@Setter
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(nullable = true)
+	private Date startDate;
+	
+	@Getter
+	@Setter
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(nullable = true)
+	private Date projectedEndDate;
 
 	@Getter
 	@Setter
