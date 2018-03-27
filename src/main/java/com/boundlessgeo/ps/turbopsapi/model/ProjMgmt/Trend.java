@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.boundlessgeo.ps.turbopsapi.model;
+package com.boundlessgeo.ps.turbopsapi.model.ProjMgmt;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -16,12 +16,9 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
-public enum RiskType {
-	CUSTSAT("Cust Sat"),
-	COSTOVERRUN("Cost Overrun"),
-	RESOURCEUNAVAILABILITY("Resource Unavailability"),
-	POPOVERRUN("PoP Overrun");
+public enum Trend {
+	UPWARDS("up"), NOCHANGE("none"), DOWNWARDS("down");
 
 	@Getter
-	private final String type;
+	private final String trending;
 }

@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.boundlessgeo.ps.turbopsapi.model;
+package com.boundlessgeo.ps.turbopsapi.model.ProjMgmt;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
